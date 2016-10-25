@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang='en' ng-app="app">
+<head>
+    <title>Transclude</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+</head>
+<body>
+    <h1> Demo on Transclude </h1>
+    <div hello><h4>This is h4 level heading.</h4><p> This is a paragraph.</p></div>
+    <script>
+  var appModule = angular.module('app', []);
+  appModule.directive('hello', function() {
+    return {
+      restrict:'A',
+      template: '<div>Hello there!<h3 ng-transclude></h3></div>',
+      transclude: true,
+      replace: true
+    };
+  });
+    </script>
+</body>
